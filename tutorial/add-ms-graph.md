@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-在本练习中, 将把 Microsoft Graph 合并到应用程序中。 对于此应用程序, 您将使用[microsoft graph 客户端库进行 .net](https://github.com/microsoftgraph/msgraph-sdk-dotnet)以调用 microsoft graph。
+在本练习中, 将把 Microsoft Graph 合并到应用程序中。 对于此应用程序, 您将使用[Microsoft Graph 客户端库进行 .net](https://github.com/microsoftgraph/msgraph-sdk-dotnet)以调用 microsoft graph。
 
 ## <a name="get-calendar-events-from-outlook"></a>从 Outlook 获取日历事件
 
@@ -60,7 +60,7 @@ protected override async void OnAppearing()
 
 ## <a name="display-the-results"></a>显示结果
 
-现在, 您可以将 JSON 转储替换为以用户友好的方式显示结果的内容。 首先创建[绑定值转换器](/xamarin/xamarin-forms/xaml/xaml-basics/data-binding-basics#binding-value-converters), 将 Microsoft Graph 返回的[datetimetimezone type](/graph/api/resources/datetimetimezone?view=graph-rest-1.0)值转换为用户预期的日期和时间格式。 右键单击 " **GraphTutorial** " 项目中的 "**模型**" 文件夹, 然后依次选择 "**新建**"、"**类 ...**"。命名该类`GraphDateTimeTimeZoneConverter` , 然后选择 "**添加**"。 将文件的全部内容替换为以下内容。
+现在, 您可以将 JSON 转储替换为以用户友好的方式显示结果的内容。 首先创建[绑定值转换器](/xamarin/xamarin-forms/xaml/xaml-basics/data-binding-basics#binding-value-converters), 将 Microsoft Graph 返回的[datetimetimezone type](/graph/api/resources/datetimetimezone?view=graph-rest-1.0)值转换为用户预期的日期和时间格式。 右键单击 " **GraphTutorial** " 项目中的 "**模型**" 文件夹, 然后依次选择 "**添加**"、"**类 ...**"。命名该类`GraphDateTimeTimeZoneConverter` , 然后选择 "**添加**"。 将文件的全部内容替换为以下内容。
 
 ```cs
 using Microsoft.Graph;
@@ -115,7 +115,7 @@ namespace GraphTutorial.Models
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="CalendarList"
-                      VerticalOptions="StartAndExpand"
+                      HasUnevenRows="true"
                       Margin="10,10,10,10">
                 <ListView.ItemTemplate>
                     <DataTemplate>

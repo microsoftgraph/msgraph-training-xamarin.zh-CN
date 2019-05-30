@@ -1,33 +1,32 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-打开 Visual Studio, 然后选择 " **File > New > Project**"。 在 "**新建项目**" 对话框中, 执行以下操作:
+打开 Visual Studio, 然后选择 "**新建项目**"。 在 "**创建新项目**" 对话框中, 选择 "**移动应用 (Xamarin. Forms)**", 然后选择 "**下一步**"。
 
-1. 选择 " **Visual c # > 跨平台**"。
-1. 选择**移动应用 (Xamarin. Forms)**。
-1. 输入项目名称的**GraphTutorial** 。
+![Visual Studio 2019 "新建项目" 对话框](images/new-project-dialog.png)
 
-![Visual Studio 2017 "新建项目" 对话框](images/new-project-dialog.png)
+在 "**配置新项目**" 对话框中, `GraphTutorial`输入**项目名称**和**解决方案名称**, 然后选择 "**创建**"。
 
 > [!IMPORTANT]
 > 确保为在这些实验室说明中指定的 Visual Studio 项目输入完全相同的名称。 Visual Studio 项目名称将成为代码中的命名空间的一部分。 这些指令中的代码取决于与这些说明中指定的 Visual Studio 项目名称匹配的命名空间。 如果使用其他项目名称, 则代码将不会编译, 除非您调整所有命名空间以匹配您在创建项目时输入的 Visual Studio 项目名称。
 
-选择“确定”****。 在 "**新建跨平台应用程序**" 对话框中, 选择 "**空白**" 模板, 并确保**代码共享策略**选择是 **.net Standard**。 如果您计划跳过某个特定平台, 则可以在 "**平台**" 下立即取消选中它。 选择 **"确定"** 以创建解决方案。
+![Visual Studio 2019 配置新项目对话框](images/configure-new-project-dialog.png)
 
-![Visual Studio 2017 新建跨平台应用程序对话框](images/new-cross-platform-app-dialog.png)
+在 "**新建跨平台应用程序**" 对话框中, 选择 "**空白**" 模板, 然后选择要在 "**平台**" 下构建的平台。 选择 **"确定"** 以创建解决方案。
+
+![Visual Studio 2019 新建跨平台应用程序对话框](images/new-cross-platform-app-dialog.png)
 
 在继续之前, 请安装稍后将使用的一些其他 NuGet 包。
 
 - 用于处理 Azure AD 身份验证和令牌管理的[Microsoft Identity。](https://www.nuget.org/packages/Microsoft.Identity.Client/)
-- 用于调用 microsoft Graph 的[microsoft](https://www.nuget.org/packages/Microsoft.Graph/) graph。
+- 用于调用 Microsoft Graph 的[microsoft](https://www.nuget.org/packages/Microsoft.Graph/) graph。
 
-选择 "**工具 > NuGet 包管理器 > 程序包管理器控制台**"。 在 "程序包管理器控制台" 中, 输入以下命令。
+选择 "**工具 _GT_ NuGet 包管理器 _GT_ 程序包管理器控制台**"。 在 "程序包管理器控制台" 中, 输入以下命令。
 
 ```Powershell
-Install-Package Microsoft.Identity.Client -Version 2.7.0 -Project GraphTutorial
-Install-Package Xamarin.Android.Support.Compat -Version 27.0.2.1 -Project GraphTutorial.Android
-Install-Package Microsoft.Identity.Client -Version 2.7.0 -Project GraphTutorial.Android
-Install-Package Microsoft.Identity.Client -Version 2.7.0 -Project GraphTutorial.iOS
-Install-Package Microsoft.Graph -Version 1.12.0 -Project GraphTutorial
+Install-Package Microsoft.Identity.Client -Version 3.0.8 -Project GraphTutorial
+Install-Package Microsoft.Identity.Client -Version 3.0.8 -Project GraphTutorial.Android
+Install-Package Microsoft.Identity.Client -Version 3.0.8 -Project GraphTutorial.iOS
+Install-Package Microsoft.Graph -Version 1.15.0 -Project GraphTutorial
 ```
 
 ## <a name="design-the-app"></a>设计应用程序
@@ -275,7 +274,7 @@ namespace GraphTutorial
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        MainPage RootPage => Application.Current.MainPage as MainPage;
         List<NavMenuItem> menuItems;
 
         public MenuPage ()
@@ -321,6 +320,9 @@ namespace GraphTutorial
     }
 }
 ```
+
+> [!NOTE]
+> Visual Studio 将报告**MenuPage.xaml.cs**中的错误。 这些错误将在后续步骤中予以解决。
 
 #### <a name="implement-the-welcome-page"></a>实施欢迎页面
 
@@ -445,6 +447,6 @@ namespace GraphTutorial
 }
 ```
 
-保存所有更改。 右键单击要运行的项目 (Android、iOS 或 UWP), 然后选择 "**设为启动项目**"。 按**F5**或选择**调试 >** 在 Visual Studio 中启动调试。
+保存所有更改。 右键单击要运行的项目 (Android、iOS 或 UWP), 然后选择 "**设为启动项目**"。 按**F5**或选择**调试 _GT_** 在 Visual Studio 中启动调试。
 
 ![应用程序的 Android、iOS 和 UWP 版本的屏幕截图](./images/welcome-page.png)
