@@ -32,6 +32,10 @@
     using System.ComponentModel;
     ```
 
+1. 将以下函数添加到类，以在用户的时区获取当前 `CalendarPage` 一周的开始。
+
+    :::code language="csharp" source="../demo/GraphTutorial/GraphTutorial/CalendarPage.xaml.cs" id="GetStartOfWeekSnippet":::
+
 1. 将以下函数 `CalendarPage` 添加到类，获取用户的事件并显示 JSON 响应。
 
     ```csharp
@@ -111,6 +115,6 @@
     CalendarList.ItemsSource = events.CurrentPage.ToList();
     ```
 
-1. 运行应用，登录，然后单击 **"日历"** 导航项。 应该会看到设置"开始"和" **结束"值** 格式 **的事件列表** 。
+1. 运行应用、登录并单击 **"日历"** 导航项。 应该会看到设置"开始"和" **结束"值** 格式 **的事件列表** 。
 
     ![事件表的屏幕截图](./images/calendar-page.png)
